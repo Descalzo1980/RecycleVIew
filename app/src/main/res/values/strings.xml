@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecycleView</string>
+    <string name="photo">Photo</string>
+    <string name="more">More</string>
+    <string name="move_up">Move Up</string>
+    <string name="move_down">Move Down</string>
+    <string name="remove">Remove</string>
+</resources>
