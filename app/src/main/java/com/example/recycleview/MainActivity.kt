@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         binding.recycleView.layoutManager = layoutManager
         binding.recycleView.adapter = adapter
 
-        usersService.addListener(usersListener)
+        usersService.addListener(usersListener) // добавлен слушатель
     }
 
     override fun onDestroy() {
