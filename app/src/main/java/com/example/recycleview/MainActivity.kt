@@ -3,6 +3,7 @@ package com.example.recycleview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recycleview.databinding.ActivityMainBinding
 import com.example.recycleview.model.User
@@ -35,11 +36,18 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity,"User: ${user.name}", Toast.LENGTH_SHORT).show()
             }
 
+            override fun onUserFire(user: User) {
+                usersService.fireUser(user)
+            }
         })
 
         val layoutManager = LinearLayoutManager(this)
         binding.recycleView.layoutManager = layoutManager
         binding.recycleView.adapter = adapter
+        val itemAnimation = binding.recycleView.itemAnimator
+        if(itemAnimation is DefaultItemAnimator){
+            itemAnimation.supportsChangeAnimations = false
+        }
 
         usersService.addListener(usersListener) // добавлен слушатель
     }
